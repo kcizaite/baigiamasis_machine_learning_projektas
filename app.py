@@ -34,7 +34,7 @@ def pacientas():
             p_duomenys = f"Vyras {age} m."
         else:
             p_duomenys = f"Moteris {age} m."
-        #
+        # Random Forest modelio pritaikymas
         if model.predict(modelis) == 0:
             pacientas = "Pacientas NEPATENKA į padidėjusios rizikos grupę sirgti širdies ir kraujagyslių ligomis"
         else:
