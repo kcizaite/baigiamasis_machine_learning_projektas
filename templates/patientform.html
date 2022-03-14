@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    body {
+    background-image: url("static/images/orange.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+</style>
+<div class="center">
+    <h1>Širdies ir kraujagyslių ligų prevencinis tyrimas</h1>
+    <br>
+    {% if pacientas == False %}
+    <div class="konteineris" style="width:65%; margin:auto">
+        <p style="font-size:35px"> Prašome įvesti duomenis apie pacientą
+        </p>
+        <p>Daugiau informacijos apie naudojamų duomenų parametrus galite rasti
+            <a href="https://archive.ics.uci.edu/ml/datasets/Heart+Disease">nuorodoje</a></p>
+        <form class="row g-3" method="post">
+            <div class="col-md-6">
+                <label class="form-label">Amžius</label>
+                <input type="number" class="form-control" name="age" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Lytis</label>
+                <select name="sex" class="form-select" required>
+                    <option value="0" selected>Vyras</option>
+                    <option value="1">Moteris</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Krūtinės skausmo tipas</label>
+                <select name="cp" class="form-select" required>
+                    <option value="1" selected>Tipine angina</option>
+                    <option value="2">Atipine angina</option>
+                    <option value="3">Ne-angininis skausmas</option>
+                    <option value="4">Asimptominis</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label class="form-label">AKS(SYS)</label>
+                <input type="number" class="form-control" name="trestbps" required>
+            </div>
+            <div class="col-6">
+                <label class="form-label">Cholesterolis</label>
+                <input type="number" class="form-control" name="chol" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Gliukoze</label>
+                <select name="fbs" class="form-select" required>
+                    <option value="1" selected>< 120 mg/dl</option>
+                    <option value="2">> 120 mg/dl</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">EKG ramybės būsenoje</label>
+                <select name="restecg" class="form-select" required>
+                    <option value="0" selected>Be pakitimų</option>
+                    <option value="1">ST-T pakitimai</option>
+                    <option value="2">Hipertrofija</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Maksimalus širdies susitraukimų dažnis</label>
+                <input type="number" class="form-control" name="thalach" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Fizinio krūvio sukelta krūtinės angina</label>
+                <select name="exang" class="form-select" required>
+                    <option value="0" selected>Ne</option>
+                    <option value="1">Taip</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">ST pakitimai fizinio krūvio metu (pavyzdžiui 1.2)</label>
+                <input type="decimal" class="form-control" name="oldpeak" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">ST segmento nuolydis</label>
+                <select name="slope" class="form-select" required>
+                    <option value="1" selected>Pakilimas</option>
+                    <option value="2">Plokščias</option>
+                    <option value="3">Nuosmūkis</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Kraujagyslių skaičius (0–3)</label>
+                <input type="number" class="form-control" name="ca" required>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label">Talasemija</label>
+                <select name="thal" class="form-select" required>
+                    <option value="1" selected>Normalus</option>
+                    <option value="2">Ištaisytas defektas</option>
+                    <option value="3">Grįžtamas defektas</option>
+                </select>
+            </div>
+            <div class="col-12">
+                <button type=submit name="submit" class="btn btn-primary">PATEIKTI</button>
+            </div>
+        </form>
+    </div>
+    {%else%}
+    <div class="center">
+        <br>
+        <br>
+        {% if pacientas == "Pacientas PATENKA į padidėjusios rizikos grupę sirgti širdies ir kraujagyslių ligomis"%}
+        <div class="card border-danger mb-3" style="max-width: 45rem; margin:auto; height:250px;">
+            <div class="card-header"><h3>{{p_duomenys}}</h3></div>
+            <div class="card-body text-danger">
+                <h2 class="card-title">{{pacientas}} 😟</h2>
+                <br>
+                <p class="card-text">Prašome susisiekti su savo šeimos gydytoju dėl tolimesnių tyrimų. Informacinė
+                    <a href="https://www.antakpol.lt/">nuoroda</a>
+                </p>
+            </div>
+        </div>
+        {%else%}
+        <div class="card border-success mb-3" style="max-width: 45rem; margin:auto; height:250x;">
+            <div class="card-header">{{p_duomenys}}</div>
+            <div class="card-body text-success">
+                <h2 class="card-title">{{pacientas}} 😁</h2>
+                <br>
+                <p class="card-text">Prašome susisiekti su savo šeimos gydytoju dėl tolimesnių tyrimų. Informacinė
+                    <a href="https://www.antakpol.lt/">nuoroda</a>.</p>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    {%endif%}
+</div>
+{% endblock %}

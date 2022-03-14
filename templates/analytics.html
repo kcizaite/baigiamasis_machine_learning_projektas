@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+        body {
+        background-image: url("static/images/orange.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        }
+</style>
+<div class="center">
+    <h1>„<i>Machine learning</i>“ modelių kūrimas</h1>
+    <br>
+    <br>
+    <p style="font-size:20px"> Pasinaudodami JAV, Vengrijos ir Šveicarijos
+        mokslininkų surinktais daugiau kaip 300 pacientų sergančių širdies ir kraujagyslių
+        ligomis duomenis, pritaikėme skirtingus „<i>Machine learning</i>“ modelius, kad surastumėme
+        geriausia ir kokybiškiausią variantą. </p>
+    <img src="data:image/png;base64, {{ url }}" height="auto" width="75%" alt="Chart">
+
+    <br>
+    <p style="width: 70%; margin: auto"></p>
+</div>
+{% endblock %}
