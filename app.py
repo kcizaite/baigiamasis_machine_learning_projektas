@@ -30,7 +30,7 @@ def pacientas():
         thal = request.form["thal"]
 
         modelis = ([[age, sex, cp, trestbps, chol, fbs, restecg, thalach, exang, oldpeak, slope, ca, thal]])
-        if sex == 0:
+        if sex == "0":
             p_duomenys = f"Vyras {age} m."
         else:
             p_duomenys = f"Moteris {age} m."
