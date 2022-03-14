@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 
 
-main_file_df = pd.read_csv(r"data/heart.csv")
+main_file_df = pd.read_csv(r"static/data/heart.csv")
 X = main_file_df.drop("target", axis=1)
 y = main_file_df["target"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
