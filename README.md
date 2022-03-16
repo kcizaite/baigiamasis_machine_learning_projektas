@@ -4,7 +4,11 @@ Laba diena.
 
 ### Norėdami pasinaudoti šiuo projektu naudokites pateikta instrukcija
 
-1. Turėkite "Python" operacinę sistemą
+1. Turėkite "Python" savo operacinėje sistemoje
 2. Parsisiųsti projekta "Baigiamasis"
-3. Instaliuokite reikalingus nustatymus: pip install -r requirements.txt
-4. Paleiskite programą: python app.py
+3. Instaliuokite reikalingus nustatymus: `pip install -r requirements.txt`
+4. Paleiskite programą: `python app.py`
+
+Šią versiją galite pamatyti ir [online](https://cordspital.herokuapp.com/) 
+
+## Sėkmės!
