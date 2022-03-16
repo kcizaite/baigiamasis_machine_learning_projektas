@@ -4,6 +4,7 @@ from flask import request
 from plotinimas import plotinimas
 import pickle
 
+
 with open("model.pkl", "rb") as pickle_in:
     new_model = pickle.load(pickle_in)
 
