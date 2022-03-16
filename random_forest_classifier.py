@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn import metrics
+import pickle
 
 
 main_file_df = pd.read_csv(r"static/data/heart.csv")
@@ -18,3 +19,7 @@ train_model.score(X_train, y_train)
 train_model.predict(X_test)
 y_pred = train_model.predict(X_test)
 metrics.confusion_matrix(y_test, y_pred)
+
+with open("model.pkl", "wb") as pickle_out:
+    pickle.dump(model, pickle_out)
+

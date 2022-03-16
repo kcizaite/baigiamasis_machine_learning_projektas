@@ -1,9 +1,11 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-from random_forest_classifier import model
 from plotinimas import plotinimas
+import pickle
 
+with open("model.pkl", "rb") as pickle_in:
+    new_model = pickle.load(pickle_in)
 
 app = Flask(__name__)
 
@@ -35,7 +37,7 @@ def pacientas():
         else:
             p_duomenys = f"Moteris {age} m."
         # Random Forest modelio pritaikymas
-        if model.predict(modelis) == 0:
+        if new_model.predict(modelis) == 0:
             pacientas = "Pacientas NEPATENKA į padidėjusios rizikos grupę sirgti širdies ir kraujagyslių ligomis"
         else:
             pacientas = "Pacientas PATENKA į padidėjusios rizikos grupę sirgti širdies ir kraujagyslių ligomis"
