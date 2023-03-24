@@ -8,7 +8,7 @@ This project presents a program to predict the probability of cardiovascular dis
 3. Install the required settings: `pip install -r requirements.txt`
 4. Run the program: python app.py
 
-Good luck!
+## Good luck!
 
 
 # Projektas skirtas "Machine learning" modeliams
